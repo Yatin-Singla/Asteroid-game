@@ -41,6 +41,11 @@ def main():
             if asteroid.detect_collision(player):
                 print("Game over!")
                 return
+            for shot in shots:
+                if asteroid.detect_collision(shot):
+                    asteroid.kill()
+                    shot.kill()
+                    break
 
         screen.fill("black")  # Fill the screen with blac
         for obj in drawable:
